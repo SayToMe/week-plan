@@ -1,0 +1,28 @@
+.plan-activity {
+    cursor: pointer;
+    border: 1px solid;
+    padding: 2px;
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.plan-activity input {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    vertical-align: middle;
+    border: none;
+}
+
+.plan-activity input {
+    /*user-select: none;*/
+}
+
+.wrapper {
+    display: table;
+    height: 500px;
+}
+
+.wrapper > .row {
+    display: table-cell;
+}

@@ -8,9 +8,9 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        "favicon.ico"
-      ],
+  "assets",
+  "favicon.ico"
+],
       "index": "index.html",
       "main": "main.ts",
       "test": "test.ts",
@@ -18,9 +18,18 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+          "../node_modules/bootstrap/dist/css/bootstrap.css",
+          "../node_modules/mdbootstrap/css/mdb.css",
+          "../node_modules/dragula/dist/dragula.css",
+          "../content/glyphicons.css",
+          "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+          "../node_modules/jquery/dist/jquery.js",
+          "../node_modules/tether/dist/js/tether.js",
+          "../node_modules/bootstrap/dist/js/bootstrap.js",
+          "../node_modules/mdbootstrap/js/mdb.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",

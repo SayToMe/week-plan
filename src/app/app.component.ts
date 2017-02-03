@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  days = ['Monday', 'Tuesday', 'Wednesday'];//, 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 }

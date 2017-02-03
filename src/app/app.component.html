@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container-fluid" style="height: 100%;">
+  <div class="row" style="height: 100%;">
+    <div [className]="'day-column col-xs-' + (12 / days.length)"  *ngFor="let day of days">
+      <h2>{{day}}</h2>
+      <app-day-plan [weekDay]="day"></app-day-plan>
+    </div>
+  </div>
+</div>
