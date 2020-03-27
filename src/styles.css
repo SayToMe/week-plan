@@ -10,7 +10,16 @@ body,
 }
 
 .navbar {
-    background-color: transparent;
+    background-color: cadetblue;
+}
+
+.navbar-nav {
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 10px;
 }
 
 .scrolling-navbar {

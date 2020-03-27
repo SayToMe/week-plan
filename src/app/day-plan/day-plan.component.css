@@ -14,8 +14,8 @@
     border: none;
 }
 
-.plan-activity input {
-    /*user-select: none;*/
+.full-size {
+    height: 100%;
 }
 
 .wrapper {

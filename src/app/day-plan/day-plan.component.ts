@@ -1,11 +1,11 @@
 import { PlanStorageService, IDayPlan, IActivity } from './../services/plan-storage.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { DragulaService } from '../../../node_modules/ng2-dragula';
+import { DragulaService } from 'ng2-dragula';
 
 @Component({
   selector: 'app-day-plan',
   templateUrl: './day-plan.component.html',
-  styleUrls: ['./day-plan.component.css']
+  styleUrls: ['./day-plan.component.css'],
 })
 export class DayPlanComponent implements OnInit {
   @Input()
@@ -13,6 +13,7 @@ export class DayPlanComponent implements OnInit {
 
   dayPlan: IDayPlan;
   newActivityName = '';
+  groupName = 'plan-bag';
 
   isDragging = false;
 
@@ -21,20 +22,28 @@ export class DayPlanComponent implements OnInit {
     ignoreInputTextSelection: false,
     moves: (el, source, handle, sibling) => {
       return !el.classList.contains('new-plan-activity');
+    },
+    invalid: (el) => {
+      return el.classList.contains('new-plan-activity');
     }
   };
 
   constructor(private dragulaService: DragulaService, private planStorageService: PlanStorageService) {
+    try {
+      this.dragulaService.createGroup(this.groupName, this.dragulaOptions);
+    } catch {
+
+    }
   }
 
   ngOnInit() {
     this.dayPlan = this.planStorageService.getDayPlan(this.weekDay);
 
-    this.dragulaService.drag.asObservable().subscribe((val) => {
+    this.dragulaService.drag(this.groupName).subscribe((val) => {
       this.isDragging = true;
     });
 
-    this.dragulaService.dragend.asObservable().subscribe((val) => {
+    this.dragulaService.dragend(this.groupName).subscribe((val) => {
       this.isDragging = false;
 
       this.updateDayPlan();

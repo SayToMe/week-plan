@@ -1,10 +1,14 @@
 <div class="wrapper container-fluid">
-  <div class="row" [dragula]='"plan-bag"' [dragulaOptions]="dragulaOptions" [dragulaModel]='dayPlan.activities'>
-    <div class="row plan-activity" *ngFor="let activity of dayPlan.activities">
-      <input type="text" [(ngModel)]="activity.title" (change)="updateDayPlan()" [ngClass]="{disabled: isDragging}">
+  <div class="row">
+    <div class="container" [dragula]='groupName' [dragulaModel]='dayPlan.activities' [ngClass]="{'full-size': isDragging}">
+      <div class="row plan-activity" *ngFor="let activity of dayPlan.activities">
+        <input type="text" [(ngModel)]="activity.title" (change)="updateDayPlan()" [ngClass]="{disabled: isDragging}">
+      </div>
     </div>
-    <div class="row plan-activity newplan-activity" *ngIf="!isDragging">
-      <input type="text" [(ngModel)]="newActivityName" (change)="addNewActivity()">
+    <div class="container" *ngIf="!isDragging">
+      <div class="row plan-activity new-plan-activity">
+        <input type="text" [(ngModel)]="newActivityName" (change)="addNewActivity()" placeholder="New activity...">
+      </div>
     </div>
   </div>
 </div>
